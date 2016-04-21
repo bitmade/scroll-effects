@@ -1,0 +1,27 @@
+{
+  "name": "scroll-effects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://joehae@github.com/bitmade/scroll-effects.git"
+  },
+  "author": "Johannes Hagenberg <johannes@bitmade.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bitmade/scroll-effects/issues"
+  },
+  "homepage": "https://github.com/bitmade/scroll-effects#readme",
+  "dependencies": {
+    "scrollmagic": "^2.0.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.7.5",
+    "babel-preset-es2015": "^6.6.0"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/babel src --out-dir lib -w",
+    "prepublish": "./node_modules/.bin/babel src --out-dir lib"
+  }
+}

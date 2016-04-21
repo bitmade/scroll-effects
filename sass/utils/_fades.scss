@@ -1,0 +1,35 @@
+@mixin fade-in($duration: 500ms) {
+  @include animatable(add-fade(), $duration);
+}
+
+@mixin fade-in-up($amount: 25%, $duration: 500ms) {
+  $animations: (
+    transform: translate3d(0, abs($amount), 0) translate3d(0, 0, 0)
+  );
+
+  @include animatable(add-fade($animations), $duration);
+}
+
+@mixin fade-in-down($amount: 25%, $duration: 500ms) {
+  $animations: (
+    transform: translate3d(0, abs($amount) * -1, 0) translate3d(0, 0, 0)
+  );
+
+  @include animatable(add-fade($animations), $duration);
+}
+
+@mixin fade-in-left($amount: 25%, $duration: 500ms) {
+  $animations: (
+    transform: translate3d(abs($amount) * -1, 0, 0) translate3d(0, 0, 0)
+  );
+
+  @include animatable(add-fade($animations), $duration);
+}
+
+@mixin fade-in-right($amount: 25%, $duration: 500ms) {
+  $animations: (
+    transform: translate3d(abs($amount), 0, 0) translate3d(0, 0, 0)
+  );
+
+  @include animatable(add-fade($animations), $duration);
+}

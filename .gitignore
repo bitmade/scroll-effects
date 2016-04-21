@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules
+bower_components
+
+# IDEA files
+.idea
+
+# The development server shouldn't be under version control
+.server

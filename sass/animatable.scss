@@ -1,0 +1,46 @@
+@function add-fade($animations: ()) {
+ @return map-merge((opacity: 0 1), $animations);
+}
+
+/// mixin to control animatable properties and reset them properly
+/// @param {map} $animations - a map that contains a property, initial- and target-values
+/// @example scss - mixin-usage with configuration-map
+///   $animations: (
+///     transform: (translate3d(0, 50%, 0) scale(2)) (translate3d(0, 0, 0) scale(1)),
+///     color: red blue,
+///     background: hotpink yellow,
+///   );
+///
+///   .my-element {
+///     @include animatable($animations)
+///   }
+
+@mixin animatable($animations: (), $transition-duration: 500ms) {
+
+  // setting an empty-list to store transitions later
+  $animatable-transitions: ();
+
+  // setting transition-durations
+  @each $animatable-property, $value-set in $animations {
+
+    // setting a temporary-list for every property and the default-duration
+    $transition-set: $animatable-property $transition-duration;
+
+    // append temporary-list to global set of animatable-transitions
+    $animatable-transitions: append($animatable-transitions, $transition-set, comma);
+  }
+
+  // setting the transitions
+  transition: $animatable-transitions;
+
+  // setting the animatable-properties
+  @each $property, $value in $animations {
+    #{$property}: nth($value, 1);
+  }
+
+  &.animated {
+    @each $property, $value in $animations {
+      #{$property}: nth($value, 2);
+    }
+  }
+}
