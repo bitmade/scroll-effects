@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/bitmade/scroll-effects#readme",
   "dependencies": {
+    "babel-cli": "^6.7.7",
     "scrollmagic": "^2.0.5"
   },
   "devDependencies": {
