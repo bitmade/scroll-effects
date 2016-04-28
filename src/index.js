@@ -1,4 +1,5 @@
 import ScrollMagic from 'scrollmagic';
+import assign from 'lodash/assign';
 
 export const Animatable = (sceneOptions = {
   offset: -120,
@@ -14,7 +15,7 @@ export const Animatable = (sceneOptions = {
     const controller = new ScrollMagic.Controller();
 
     elements.forEach(triggerElement => {
-      const scene = new ScrollMagic.Scene(Object.assign({
+      const scene = new ScrollMagic.Scene(assign({
         triggerElement,
       }, sceneOptions)).setClassToggle(triggerElement, animateClass);
 
